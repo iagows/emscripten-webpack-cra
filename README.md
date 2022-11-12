@@ -46,7 +46,7 @@ Here are the few steps I needed to take and why:
   oblivious to any webpack settings. I solved this by overriding the `locateFile`
   function when loading the module in the app. By returning the result of a `require`
   function, the js wrapper is able to find the appropriate wasm file, as packed
-  by webpack (see `src/App.js`).
+  by webpack (see `src/App.tsx`).
 
 ## Running the thing
 
