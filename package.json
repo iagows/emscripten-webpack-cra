@@ -15,15 +15,6 @@
     "eslint": "eslint --fix",
     "format": "yarn prettier && yarn eslint"
   },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ],
-    "ignorePatterns": [
-      "src/wasm/hello.mjs"
-    ]
-  },
   "browserslist": {
     "production": [
       ">0.2%",

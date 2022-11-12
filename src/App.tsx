@@ -1,32 +1,19 @@
 import './App.css'
-import React, { useState } from 'react'
-
-// this just loads stuff to load the wasm
-import hello, { Wasm } from './wasm/hello'
+import React from 'react'
 
 import Loaded from './components/Loaded'
-import Unloaded from './components/Unloaded'
+
+import useWasm from './hooks/useWasm'
 
 const App = () => {
-  const [loading, setLoading] = useState<boolean>(false)
-  const [wasm, setWasm] = useState<Wasm>()
-  const loadWasm = async () => {
-    setLoading(true)
-    const wasm = await hello({
-      // This overrides the default path used by the wasm/hello.mjs wrapper
-      locateFile: () => require('./wasm/hello.wasm'),
-    })
-    setWasm(wasm)
-    setLoading(false)
-  }
-
+  const wasm = useWasm('hello')
   return (
     <div className="App">
       <header className="App-header">
         {wasm ? (
           <Loaded wasm={wasm} />
         ) : (
-          <Unloaded loading={loading} loadWasm={loadWasm} />
+          <div>Loading...</div>
         )}
       </header>
     </div>

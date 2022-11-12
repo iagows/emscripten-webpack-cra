@@ -3,12 +3,17 @@ import { Wasm } from '../../wasm/hello'
 
 type Stuff = {
   add: number
+  sub: number
   text: string
 }
 
+const a = 11
+const b=  2
+
 const action = (wasm: Wasm, setStuff: (stuff: Stuff) => void) => {
   // Try a simple function call
-  const add = wasm.my_add(1, 2)
+  const add = wasm.my_add(a, b)
+  const sub = wasm.my_sub(a, b)
   const vectorOfPoints = new wasm.VectorPoint()
 
   // Push a couple of points:
@@ -17,11 +22,11 @@ const action = (wasm: Wasm, setStuff: (stuff: Stuff) => void) => {
 
   // Accumulate them
   const { x, y } = wasm.accumulatePoints(vectorOfPoints)
-  if (x === 5 && y === 7) {
-    setStuff({ add, text: 'Accumulation worked' })
-  } else {
-    setStuff({ add, text: 'Accumulation did not work' })
-  }
+
+  const text = (x===5 && y===7)? 'Accumulation worked':'Accumulation did not work'
+
+  setStuff({ add, text, sub })
+ 
 }
 
 type PropTypes = {
@@ -40,7 +45,8 @@ const Loaded = ({ wasm }: PropTypes) => {
       <button onClick={onClick}>Click me</button>
       {stuff ? (
         <>
-          <div>1 + 2 = {stuff.add}</div>
+          <div>{a} + {b} = {stuff.add}</div>
+          <div>{a} - {b} = {stuff.sub}</div>
           <div>{stuff.text}</div>
         </>
       ) : (

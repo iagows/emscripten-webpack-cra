@@ -1,4 +1,4 @@
-export type Add = (a: number, b: number) => number
+export type Calc = (a: number, b: number) => number
 
 export type Point = {
   x: number
@@ -11,7 +11,8 @@ export type VectorPoint = {
 }
 
 export type Wasm = {
-  my_add: Add
+  my_add: Calc
+  my_sub: Calc
   VectorPoint: VectorPoint
   accumulatePoints: (array: VectorPoint) => Point
 }
