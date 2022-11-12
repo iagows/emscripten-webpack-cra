@@ -1,0 +1,11 @@
+{
+  "recommendations": [
+    "jock.svg",
+    "csstools.postcss",
+    "dbaeumer.vscode-eslint",
+    "esbenp.prettier-vscode",
+    "rvest.vs-code-prettier-eslint",
+    "streetsidesoftware.code-spell-checker",
+    "llvm-vs-code-extensions.vscode-clangd"
+  ]
+}
