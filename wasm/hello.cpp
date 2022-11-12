@@ -11,8 +11,8 @@ struct Point {
   int y;
 };
 
-int myadd(int a, int b) {
-  std::cout << "Hi there\n";
+int my_add(int a, int b) {
+  std::cout << "Hello CPP\n";
   return a + b;
 }
 
@@ -23,7 +23,7 @@ Point accumulatePoints(std::vector<Point> &points) {
 }
 
 EMSCRIPTEN_BINDINGS(my_module) {
-  function("myadd", &myadd);
+  function("my_add", &my_add);
   value_object<Point>("Point")
     .field("x", &Point::x)
     .field("y", &Point::y)
