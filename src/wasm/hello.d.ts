@@ -1,7 +1,3 @@
-type Input = {
-  locateFile: () => void;
-};
-
 export type Add = (a: number, b: number) => number;
 
 export type Point = {
@@ -18,6 +14,10 @@ export type Wasm = {
   my_add: Add;
   VectorPoint: VectorPoint;
   accumulatePoints: (array: VectorPoint) => Point;
+};
+
+type Input = {
+  locateFile: () => void;
 };
 
 declare function hello(input: Input): Promise<Wasm>;
