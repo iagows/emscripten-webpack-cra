@@ -1,0 +1,11 @@
+# configuration files
+package.json
+*-lock.json
+*-lock.yaml
+tsconfig.json
+*.mjs
+
+# build output
+build
+dist
+coverage
