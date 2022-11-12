@@ -8,7 +8,7 @@ type Stuff = {
 }
 
 const a = 11
-const b=  2
+const b = 2
 
 const action = (wasm: Wasm, setStuff: (stuff: Stuff) => void) => {
   // Try a simple function call
@@ -23,10 +23,10 @@ const action = (wasm: Wasm, setStuff: (stuff: Stuff) => void) => {
   // Accumulate them
   const { x, y } = wasm.accumulatePoints(vectorOfPoints)
 
-  const text = (x===5 && y===7)? 'Accumulation worked':'Accumulation did not work'
+  const text =
+    x === 5 && y === 7 ? 'Accumulation worked' : 'Accumulation did not work'
 
   setStuff({ add, text, sub })
- 
 }
 
 type PropTypes = {
@@ -45,8 +45,12 @@ const Loaded = ({ wasm }: PropTypes) => {
       <button onClick={onClick}>Click me</button>
       {stuff ? (
         <>
-          <div>{a} + {b} = {stuff.add}</div>
-          <div>{a} - {b} = {stuff.sub}</div>
+          <div>
+            {a} + {b} = {stuff.add}
+          </div>
+          <div>
+            {a} - {b} = {stuff.sub}
+          </div>
           <div>{stuff.text}</div>
         </>
       ) : (

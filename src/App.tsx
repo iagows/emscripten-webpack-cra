@@ -10,11 +10,7 @@ const App = () => {
   return (
     <div className="App">
       <header className="App-header">
-        {wasm ? (
-          <Loaded wasm={wasm} />
-        ) : (
-          <div>Loading...</div>
-        )}
+        {wasm ? <Loaded wasm={wasm} /> : <div>Loading...</div>}
       </header>
     </div>
   )
