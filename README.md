@@ -57,6 +57,8 @@ In both cases it will try first to compile the `hello.cpp` file to WASM.
 I've added `serve` as a dev dependency, so running `yarn serve:build` should
 build the app and serve it.
 
+I've added `Prettier` as a dev dependency to keep code concise.
+
 The default app's behavior is to show a button to load the wasm, when loaded
 clicking the button again should display "Hi there" in the console log,
 and should display a text with "1 + 2 = 3, Accumulation worked".
